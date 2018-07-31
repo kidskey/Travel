@@ -109,9 +109,7 @@
             top: 0 
             left: 0
             right: 0
-            bottom: .44rem
-            box-sizing: border-box
-            padding: .1rem
+            bottom: .3rem
             .icon-img
                 height: 100%
         .icon-desc
@@ -119,7 +117,7 @@
             left: 0
             right: 0
             bottom: 0
-            line-height: .44rem
+            line-height: .3rem
             color: $darkTextColor
             ellipsis()
 </style>
