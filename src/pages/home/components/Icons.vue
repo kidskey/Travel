@@ -95,31 +95,32 @@
         height: 0 
         padding-bottom: 50%
         background: #fff 
- 
-    .icon
-        width: 25%
-        float: left 
-        padding-bottom: 25%
-        text-align: center
-        overflow: hidden 
-        position: relative
-        height: 0
-        .icon-image
-            position: absolute 
-            top: 0 
-            left: 0
-            right: 0
-            bottom: .44rem
-            box-sizing: border-box
-            padding: .1rem
-            .icon-img
-                height: 100%
-        .icon-desc
-            position: absolute 
-            left: 0
-            right: 0
-            bottom: 0
-            line-height: .44rem
-            color: $darkTextColor
-            ellipsis()
+    .icons 
+        margin-top: .1rem
+        .icon
+            width: 25%
+            float: left 
+            padding-bottom: 25%
+            text-align: center
+            overflow: hidden 
+            position: relative
+            height: 0
+            .icon-image
+                position: absolute 
+                top: 0 
+                left: 0
+                right: 0
+                bottom: .44rem
+                box-sizing: border-box
+                padding: .1rem
+                .icon-img
+                    height: 100%
+            .icon-desc
+                position: absolute 
+                left: 0
+                right: 0
+                bottom: 0
+                line-height: .44rem
+                color: $darkTextColor
+                ellipsis()
 </style>
