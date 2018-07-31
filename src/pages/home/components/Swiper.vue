@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" v-if="showSwiper">
             <!-- slides -->
-            <swiper-slide v-for="item in swiperList" :key="item.id">
+            <swiper-slide v-for="item in list" :key="item.id">
                 <img class="swiper-image" :src='item.imgUrl'>
             </swiper-slide>
             
@@ -22,26 +22,15 @@
                     autoplay : 3000,
                     speed: 500,
                     autoplayDisableOnInteraction: false
-
-                },
-                swiperList:[
-                    {
-                        id:1,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1807/c6/44fce1467be17702.jpg_750x200_406f5fc3.jpg'
-                    },
-                    {
-                        id:2,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg'
-                    },
-                    {
-                        id:3,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1806/8f/d09fa241a01ac02.jpg_750x200_e0c86013.jpg'
-                    },
-                    {
-                        id:4,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1807/e7/d70d0830a9941b02.jpg_750x200_f8c7d2ad.jpg'
-                    }
-                ]
+                }
+            }
+        },
+        props:{
+            list: Array
+        },
+        computed:{
+            showSwiper(){
+                return this.list.length;
             }
         }
     }
@@ -53,7 +42,7 @@
         width: 100%
         height: 0
         overflow: hidden
-        padding-bottom: 26%
+        padding-bottom: 31%
         background: #eee
         .swiper-image
             width: 100%

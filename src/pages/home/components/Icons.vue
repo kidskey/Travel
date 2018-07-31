@@ -7,7 +7,7 @@
                         <div class="icon-image">
                             <img :src="item.imgUrl" class="icon-img">
                         </div>
-                        <p class="icon-desc">{{item.text}}</p>
+                        <p class="icon-desc">{{item.desc}}</p>
                     </li>
                 </ul>
             </swiper-slide>
@@ -17,64 +17,20 @@
 <script>
     export default{
         name:'HomeIcons',
+        props:{
+            icon: Array
+        },
         data(){
             return {
                 swiperOption:{
-                    loop: false
-                },
-                iconList:[
-                    {
-                        id:1,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                        text:"景点门票"
-                    },
-                    {
-                        id:2,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                        text:"北京必游"
-                    },
-                    {
-                        id:3,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-                        text:"夏日玩水"
-                    },
-                    {
-                        id:4,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-                        text:"文化古迹"
-                    },
-                    {
-                        id:5,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-                        text:"动植物园"
-                    },
-                    {
-                        id:6,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-                        text:"故宫"
-                    },
-                    {
-                        id:7,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                        text:"一日游"
-                    },
-                    {
-                        id:8,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png',
-                        text:"汽车票"
-                    },
-                    {
-                        id:9,
-                        imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png',
-                        text:"汽车票"
-                    }
-                ]
+                    autoplay: false
+                }
             }
         },
         computed:{
             pages(){
                 const pages = []
-                this.iconList.forEach((item,index)=>{
+                this.icon.forEach((item,index)=>{
                     const page = Math.floor(index / 8)
                     if(!pages[page]){
                         pages[page] = []
