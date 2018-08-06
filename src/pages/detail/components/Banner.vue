@@ -1,13 +1,15 @@
 <template>
     <div>
         <div class="banner" @click="handleBanner">
-            <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1507/9e/7b5e0a44cb0310280b1aeb2a8dd94de8.water.jpg_600x330_bfb39f14.jpg" alt="">
+            <img class="banner-img" :src="bannerImg" alt="">
             <div class="banner-info">
-                <div class="banner-title">长隆国际大马戏剧院</div>
-                <div class="banner-number"><span class="iconfont banner-icon">&#xe692;</span>87</div>
+                <div class="banner-title">{{this.sightName}}</div>
+                <div class="banner-number"><span class="iconfont banner-icon">&#xe692;</span>
+                    {{this.galleryImgs.length}}
+                </div>               
             </div>
         </div>
-        <common-gallery :imgs="imgs" v-show="showGallery" @close="handleGalleryClose"></common-gallery>
+        <common-gallery :imgs="galleryImgs" v-show="showGallery" @close="handleGalleryClose"></common-gallery>
     </div>
     
 </template>
@@ -19,11 +21,14 @@
         components:{
             CommonGallery
         },
+        props:{
+            sightName: String,
+            bannerImg: String,
+            galleryImgs: Array
+        },
         data(){
             return{
-                showGallery:false,
-                imgs:['https://imgs.qunarzz.com/sight/p0/1502/da/dac02fc8e4d9f3d2.water.jpg_r_800x800_1fa313ea.jpg',
-                    'https://imgs.qunarzz.com/sight/p0/1502/1d/1d16998cee49f904.water.jpg_r_800x800_3d6ca48d.jpg']
+                showGallery:false
             }
         },
         methods:{
