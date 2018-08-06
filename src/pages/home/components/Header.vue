@@ -16,6 +16,7 @@
     </div>
 </template>
 <script>
+    import {mapState} from 'vuex'
     export default{
         name:'HomeHeader',
         data(){
@@ -23,8 +24,8 @@
 
             }
         },
-        props:{
-            city: String
+        computed:{
+            ...mapState(['city'])
         }
     }
     
@@ -56,7 +57,8 @@
             font-size: .32rem
         .header-right
             font-size: .3rem
-            width: 1.24rem
+            min-width: 1.04rem
+            padding: 0 .1rem
             float: right
             text-align: center
             color: #fff

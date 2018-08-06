@@ -5,14 +5,15 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button">{{this.currentCity}}</div>
                     </div>
                 </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper" v-for="item in hct" :key="item.id">
+                    <div class="button-wrapper" v-for="item in hct" :key="item.id"
+                    @click="handleCity(item.name)">
                         <div class="button">{{item.name}}</div>
                     </div>
                 </div>
@@ -22,7 +23,8 @@
                 :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
                 <ul class="item-list">
-                    <li class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">
+                    <li class="item border-bottom" v-for="innerItem in item" 
+                    :key="innerItem.id" @click="handleCity(innerItem.name)">
                         {{innerItem.name}}
                     </li>
                 </ul>
@@ -33,6 +35,7 @@
 <script>
 
     import BScroll from 'better-scroll'
+    import {mapState, mapMutations} from 'vuex'
 
     export default{
         name:'CityList',
@@ -46,7 +49,20 @@
 
             }
         },
-          mounted(){
+        computed:{
+            ...mapState({
+                currentCity:'city'
+            })
+        },
+        methods:{
+            handleCity(city){
+                // this.$store.commit('changeCity', city)
+                this.changeCity(city)
+                this.$router.push('/')
+            },
+            ...mapMutations(['changeCity'])
+        },
+        mounted(){
             this.scroll = new BScroll(this.$refs.wrapper)
         },
         watch:{
